@@ -2,16 +2,7 @@ import { isJson, objectPath } from '@tolkam/lib-utils';
 import Container from './Container';
 import ContainerDefinition from './ContainerDefinition';
 import RendererError from './RendererError';
-import {
-    ATTR_CLASS,
-    ATTR_COMPONENT,
-    ATTR_CONTAINER_GROUP,
-    ATTR_PROP,
-    ATTR_PROP_REF,
-    ATTR_PROPS,
-    ATTR_TAG,
-    PH_PROP,
-} from './constants';
+import { ATTR_CLASS, ATTR_COMPONENT, ATTR_CONTAINER_GROUP, ATTR_PROP, ATTR_PROP_REF, ATTR_PROPS, ATTR_TAG, PH_PROP } from './constants';
 
 const WIN = window;
 const DOC = WIN ? WIN.document : null;
@@ -169,7 +160,7 @@ export default class Renderer {
      * @return {object}
      */
     protected getProps(placeholder: Element, definition: ContainerDefinition) {
-        const props = {};
+        const props: any = {};
         const attrs = placeholder.attributes;
         const jsonParse = JSON.parse.bind(JSON);
 
@@ -200,6 +191,11 @@ export default class Renderer {
             if (currentKey) {
                 props[propName(currentKey, name)] = parsed;
             }
+        }
+
+        // placeholder contents as children
+        if (!props.hasOwnProperty('children')) {
+            props.children = placeholder.innerHTML;
         }
 
         return {...definition.getDefaultProps(), ...props};

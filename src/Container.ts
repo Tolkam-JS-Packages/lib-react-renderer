@@ -39,7 +39,7 @@ export default class Container {
      * @param {string} name
      * @param {React.Component} component
      */
-    public register(name: string, component: ComponentType) {
+    public register(name: string, component: ComponentType<any>) {
         this.registerAsync(name, () => Promise.resolve(component));
 
         return this;
@@ -68,7 +68,7 @@ export default class Container {
      *
      * @param {object} obj
      */
-    public registerBulk(obj: { [name: string]: ComponentType }) {
+    public registerBulk(obj: { [name: string]: ComponentType<any> }) {
         for (const name in obj) {
             this.register(name, obj[name]);
         }
