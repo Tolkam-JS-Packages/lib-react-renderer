@@ -56,6 +56,7 @@ export default class ReactDOMFactory implements IFactory {
             }
 
             // without root element
+            // this works with react < v17
             if (o.noRoot) {
                 // apply container group to each of the children
                 // to be able to find components later after target is replaced
