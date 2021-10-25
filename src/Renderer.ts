@@ -8,10 +8,11 @@ const WIN = window;
 const DOC = WIN ? WIN.document : null;
 const BODY = DOC ? DOC.body : null;
 
-const NOOP = () => null;
-
 /**
  * Renders React components into existing DOM
+ *
+ * Inspired by react-habitat package
+ * @see https://github.com/DeloitteDigitalAPAC/react-habitat
  */
 export default class Renderer {
 
@@ -104,7 +105,7 @@ export default class Renderer {
     public destroy() {
         const that = this;
         that.unmount();
-        delete that.container;
+        (that.container as any) = null;
     }
 
     /**

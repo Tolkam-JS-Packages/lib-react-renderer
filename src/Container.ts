@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { ComponentType } from 'react';
 import IFactory from './factory/IFactory';
 import ContainerDefinition, { TResolver } from './ContainerDefinition';

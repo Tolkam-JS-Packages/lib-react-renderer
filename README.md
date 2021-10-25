@@ -4,7 +4,7 @@ Renders react components into existing DOM.
 
 ## Usage
 
-````ts
+````tsx
 import { ReactDOMFactory, Container, Renderer } from '@tolkam/lib-react-renderer';
 
 const componentFactory = new ReactDOMFactory();
