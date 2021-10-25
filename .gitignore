@@ -1,0 +1,15 @@
+# Ignore IDE/hidden/OS cache files
+.*
+*~
+
+# Keep some hiddens
+!.gitignore
+!.gitkeep
+!.travis.yml
+!.gitlab-ci.yml
+
+# NPM
+**/node_modules/*
+
+# local lock
+./package-lock.json
