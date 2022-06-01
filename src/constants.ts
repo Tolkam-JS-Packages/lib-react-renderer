@@ -21,3 +21,6 @@ export const ATTR_PROP_REF = 'data-g-prop-';
 
 // name of the prop for removed placeholder on root element
 export const PH_PROP = 'rrPlaceholder';
+
+// name of the prop for react root object
+export const ROOT_PROP = 'rrReactRoot';

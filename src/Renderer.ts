@@ -80,22 +80,22 @@ export default class Renderer {
 
         const mounted = target.querySelectorAll(`[${ATTR_CONTAINER_GROUP}="${container.id}"]`);
 
-        mounted.forEach((rootEl) => {
+        mounted.forEach((containerEl) => {
 
             // unmount react component
-            container.factory.dispose(rootEl);
+            container.factory.dispose(containerEl);
 
             // restore placeholder
             try {
-                if (rootEl[PH_PROP]) {
-                    rootEl.parentNode!.insertBefore(rootEl[PH_PROP], rootEl);
+                if (containerEl[PH_PROP]) {
+                    containerEl.parentNode!.insertBefore(containerEl[PH_PROP], containerEl);
                 }
             } finally {
-                rootEl.remove();
+                containerEl.remove();
             }
-
-            onUnmount && onUnmount();
         });
+
+        onUnmount && onUnmount();
     }
 
     /**
@@ -103,9 +103,8 @@ export default class Renderer {
      *
      */
     public destroy() {
-        const that = this;
-        that.unmount();
-        (that.container as any) = null;
+        this.unmount();
+        (this.container as any) = null;
     }
 
     /**
@@ -117,7 +116,7 @@ export default class Renderer {
     protected apply(nodes: NodeListOf<Element>, cb?: () => any) {
         const that = this;
         const o = that.options;
-        const container = that.container;
+        const container = that.getContainer();
         const queue: any = [];
 
         // queue each component rendering
@@ -262,7 +261,7 @@ function propName(prefix: string, str: string): string {
  */
 function handleAsyncError(error: unknown) {
     setTimeout(() => {
-        throw error
+        throw error;
     });
 }
 

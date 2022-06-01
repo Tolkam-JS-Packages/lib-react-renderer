@@ -1,6 +1,7 @@
 {
     "name": "@tolkam/lib-react-renderer",
     "description": "Renders react components into existing DOM",
+    "version": "0.0.0",
     "main": "src/index.ts",
     "types": "src/index.ts",
     "license": "UNLICENSED",
@@ -8,14 +9,14 @@
         "@tolkam/lib-utils": "^0.2.0"
     },
     "peerDependencies": {
-        "react": ">=15.0.0 <17.0.0",
-        "react-dom": ">=15.0.0 <17.0.0"
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
     },
     "devDependencies": {
-        "@types/react": "^16",
-        "@types/react-dom": "^16",
-        "react": "^16.14",
-        "react-dom": "^16.14",
-        "tslib": "^2.3.1"
+        "@types/react": "^18.0.10",
+        "@types/react-dom": "^18.0.5",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "tslib": "^2.4.0"
     }
 }

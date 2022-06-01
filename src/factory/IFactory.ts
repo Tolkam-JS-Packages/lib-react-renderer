@@ -1,5 +1,4 @@
 import { ComponentType, ReactElement } from 'react';
-
 interface IFactory {
 
     /**
