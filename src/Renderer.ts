@@ -62,6 +62,7 @@ export default class Renderer {
 
         if (!placeholders.length) {
             onMount && onMount();
+            return;
         }
 
         that.apply(placeholders, onMount);
